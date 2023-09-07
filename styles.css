@@ -1,0 +1,35 @@
+* {
+    margin: none;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.title {
+    display: flex;
+    align-items: center;
+}
+
+
+.input {
+    margin-bottom: 10px;
+}
+
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+
+.operators {
+    display: flex;
+    border: 1px solid red;
+}
