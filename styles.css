@@ -17,7 +17,7 @@
 }
 
 
-.input {
+.display {
     margin-bottom: 10px;
 }
 
@@ -115,5 +115,17 @@
 
 
 .equals {
-    margin-left: 5px;
+    margin-left: 15px;
+    background-color: rgb(63, 185, 255);
+    border-radius: 3px;
+    border: 1px solid gray;
+}
+
+
+.equals:hover {
+    background-color: rgb(24, 170, 255);
+}
+
+.equals:active {
+    background-color: rgb(114, 203, 255);
 }
