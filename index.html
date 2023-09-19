@@ -13,39 +13,39 @@
         </div>
         <div class="calculator">
             <div class="display">
-                <input type="text" class="input">
+                <div class="showNum"></div>
+                <input type="text" class="input" id="inputBox">
             </div>
             <div class="functionContainer">
                 <div class="clearRow">
-                    <button class="clear">CE</button>
-                    <button class="clearAll">C</button>
+                    <button class="clearAll" onclick="(clearInput())">C</button>
                     <button class="backspace"><</button>
                 </div>
                 <div class="operators">
-                    <button class="add">+</button>
-                    <button class="subtract">-</button>
-                    <button class="multiply">*</button>
-                    <button class="divide">/</button>
+                    <button class="op" id="add">+</button>
+                    <button class="op" id="subtract">-</button>
+                    <button class="op" id="multiply">*</button>
+                    <button class="op" id="divide">/</button>
                 </div>
                 <div class="group1">
-                    <button class="number" id="one" onclick="(numInput(1))">1</button>
-                    <button class="number" id="two" onclick="(numInput(2))">2</button>
-                    <button class="number" id="three" onclick="(numInput(3))">3</button>
+                    <button class="number" id="one">1</button>
+                    <button class="number" id="two">2</button>
+                    <button class="number" id="three">3</button>
                 </div>
                 <div class="group2">
-                    <button class="number" id="four" onclick="(numInput(4))">4</button>
-                    <button class="number" id="five" onclick="(numInput(5))">5</button>
-                    <button class="number" id="six" onclick="(numInput(6))">6</button>
+                    <button class="number" id="four">4</button>
+                    <button class="number" id="five">5</button>
+                    <button class="number" id="six">6</button>
                 </div>
                 <div class="group3">
-                    <button class="number" id="seven" onclick="(numInput(7))">7</button>
-                    <button class="number" id="eight" onclick="(numInput(8))">8</button>
-                    <button class="number" id="nine" onclick="(numInput(9))">9</button>
+                    <button class="number" id="seven">7</button>
+                    <button class="number" id="eight">8</button>
+                    <button class="number" id="nine">9</button>
                 </div>
                 <div class="group4">
                     <button class="posNeg">+/-</button>
-                    <button class="number" id="zero" onclick="(numInput(0))">0</button>
-                    <button class="decimal">.</button>
+                    <button class="number" id="zero">0</button>
+                    <button class="decimal" onclick="(numInput('.'))">.</button>
                     <button class="equals">=</button>
                 </div>
             </div>
