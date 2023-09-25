@@ -6,22 +6,19 @@ const clearAllBtn = document.querySelector(".clearAll");
 
 const backspace = document.querySelector(".backspace");
 
-const addBtn = document.querySelector(".add");
-
-const subtractBtn = document.querySelector(".subtract");
-
-const multiplyBtn = document.querySelector(".multiply");
-
-const divideBtn = document.querySelector(".divide");
-
 const operators = document.querySelectorAll('.op');
 
 const numbers = document.querySelectorAll('.number');
 
+const equalBtn = document.querySelector('.equals');
+
+
+display.style = ('font-size: medium')
+
 
 let num1 = '';
 let num2 = '';
-let operate = '';
+
 
 //function to restrict the input for the textbox (inputBox)
 function setInputFilter(textbox, inputFilter, errMsg) {
@@ -79,24 +76,49 @@ const clearInput = () => {
 };
 
 
-const add = (num1, num2) => {
-    let solution = num1 + num2;
-    return solution;
-};
-
-const subtract = (num1, num2) => {
-    let solution = num1 - num2;
+const add = (a, operator, b) => {
+  if(operator === '+'){
+    solution = a + b;
     return solution
+  }
+  else {
+    return null;
+  }
 };
 
-const multiply = (num1, num2) => {
-    let solution = num1 * num2;
-    return solution;
+const subtract = (a, operator, b) => {
+  if(operator === '-'){
+    solution = a - b;
+    return solution
+  }
+  else {
+    return null;
+  }
 };
 
-const divide = (num1, num2) => {
-    let solution = num1 / num2;
-    return solution;
+const multiply = (a, operator, b) => {
+  if(operator === '*'){
+    solution = a * b;
+    return solution
+  }
+  else {
+    return null;
+  }
+};
+
+const divide = (a, operator, b) => {
+  if(operator === '/'){
+    if(a === 0 || b === 0) {
+      return null;
+    }
+    else {
+      let solution = a / b;
+      return solution;
+    }
+  }
+  else {
+    return null;
+  }
 };
 
 
@@ -113,4 +135,34 @@ operators.forEach((op) => {
         display.textContent = num2 + " " + operator;
         inputBox.value = '';
     })
+    equalBtn.addEventListener('click', function() {
+      operate()
+      inputBox.value = '';
+      if(operator === '/' && num1 === 0 || num2 === 0) {
+        display.textContent = 'You cannot divide by zero!'
+      }
+      else {
+        display.textContent = num2 + ` ` + operator + ` ` + num1 + ` ` + `= ` + solution;
+        display.style = ('font-weight: bold');
+      }
+      inputBox.value = '';
+    });
 });
+
+const operate = () => {
+  num1 = Number(num1);
+  num2 = Number(num2);
+
+  if(operator === '+') {
+    return add(num1, '+', num2)
+  }
+  else if(operator === '-') {
+    return subtract(num1, '-', num2)
+  }
+  else if(operator === '*') {
+    return multiply(num1, '*', num2)
+  }
+  else if(operator === '/') {
+    return divide(num1, '/', num2)
+  }
+};
