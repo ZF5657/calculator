@@ -29,12 +29,14 @@
     font-size: x-large;
     height: 37.5px;
     padding-left: 5px;
+    background: white;
 }
 
 .inputBox {
     height: 37.5px;
     font-size: xx-large;
     padding-left: 5px;
+    background: white;
 }
 
 .calculator {
@@ -46,6 +48,7 @@
     padding-left: 10px;
     padding-right: 10px;
     align-items: center;
+    background: rgb(190, 190, 190);
 }
 
 .functionContainer {
@@ -146,7 +149,7 @@
     margin-right: 15px;
 }
 
-.decimal {
+#decimal {
     margin-right: 15px; 
 }
 
@@ -185,11 +188,11 @@ button {
 }
 
 .dark:hover {
-    background: rgba(51, 51, 51, 0.829);
+    background: rgb(51, 51, 51, 0.829);
 }
 
 .dark:active {
-    background: rgba(94, 94, 94, 0.829);
+    background: rgb(94, 94, 94, 0.829);
 }
 
 .dark-theme {
@@ -201,24 +204,124 @@ button {
 
     .calculator {
         border: 1px solid white;
+        background: rgb(10, 10, 10, 0.829);
     }
 
     .display {
         border: 1px solid white;
+    }
+
+    .showNum {
         color: white;
+        background: rgb(92, 92, 92);
+    }
+
+    .inputBox {
+        color: white;
+        background: rgb(92, 92, 92);
     }
 
     .equals {
         background-color: rgb(255, 211, 67);
+        border: 1px solid black;
+        border-radius: 3px;
+    }
+
+    .equals:hover {
+        background: rgb(255, 196, 0);
+    }
+    
+    .equals:active {
+        background: rgb(255, 215, 85);
     }
 
     .op {
         color: white;
         background-color: rgb(73, 73, 73, 0.829);
+        border: 1px solid black;
+        border-radius: 3px;
+    }
+
+    .op:hover {
+        background: rgb(51, 51, 51, 0.829);
+    }
+    
+    .op:active {
+        background: rgb(94, 94, 94, 0.829);
     }
 
     .number {
         color: white;
         background-color: rgb(73, 73, 73, 0.829);
+        border: 1px solid black;
+        border-radius: 3px;
+    }
+
+    .number:hover {
+        background: rgb(51, 51, 51, 0.829);
+    }
+    
+    .number:active {
+        background: rgb(94, 94, 94, 0.829);
+    }
+
+    .posNeg {
+        color: white;
+        background-color: rgb(73, 73, 73, 0.829);
+        border: 1px solid black;
+        border-radius: 3px;
+    }
+
+    .posNeg:hover {
+        background: rgb(51, 51, 51, 0.829);
+    }
+    
+    .posNeg:active {
+        background: rgb(94, 94, 94, 0.829);
+    }
+
+    .clearAll {
+        color: white;
+        background-color: rgb(73, 73, 73, 0.829);
+        border: 1px solid black;
+        border-radius: 3px;
+    }
+
+    .clearAll:hover {
+        background: rgb(51, 51, 51, 0.829);
+    }
+    
+    .clearAll:active {
+        background: rgb(94, 94, 94, 0.829);
+    }
+
+    .clearInput {
+        color: white;
+        background-color: rgb(73, 73, 73, 0.829);
+        border: 1px solid black;
+        border-radius: 3px;
+    }
+
+    .clearInput:hover {
+        background: rgb(51, 51, 51, 0.829);
+    }
+    
+    .clearInput:active {
+        background: rgb(94, 94, 94, 0.829);
+    }
+
+    .backspace {
+        color: white;
+        background-color: rgb(73, 73, 73, 0.829);
+        border: 1px solid black;
+        border-radius: 3px;
+    }
+
+    .backspace:hover {
+        background: rgb(51, 51, 51, 0.829);
+    }
+    
+    .backspace:active {
+        background: rgb(94, 94, 94, 0.829);
     }
 }

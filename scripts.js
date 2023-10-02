@@ -10,12 +10,6 @@ const darkBtn = document.querySelector('.dark');
 
 const darkMode = () => {
   document.body.classList.toggle('dark-theme');
-  if(darkBtn.textContent = 'Dark Mode') {
-    darkBtn.textContent = 'Light Mode';
-  }
-  else {
-    darkBtn.textContent = 'Dark Mode';
-  }
 }
 
 darkBtn.addEventListener('click', () => {
@@ -24,45 +18,93 @@ darkBtn.addEventListener('click', () => {
 });
 
 // adds functions to the operators
-const add = (a, operator, b) => {
+const add = (a, b) => {
   if(operator === '+') {
-    solution = a + b;
-    return solution
+    return a + b;
   }
   else {
     return null;
   }
 };
 
-const subtract = (a, operator, b) => {
+const subtract = (a, b) => {
   if(operator === '-') {
-    solution = a - b;
-    return solution
+    return a - b;
   }
   else {
     return null;
   }
 };
 
-const multiply = (a, operator, b) => {
+const multiply = (a, b) => {
   if(operator === '*') {
-    solution = a * b;
-    return solution
+    return a * b;
   }
   else {
     return null;
   }
 }
 
-const divide = (a, operator, b) => {
+let randomResponses = () => {
+  Math.floor(Math.random() * 6)
+  const randomChoice = Math.floor(Math.random() * 9);
+  switch (randomChoice) {
+    case 0:
+      display.textContent = `You can't divide by zero.`;
+      num1 = '';
+      inputBox.textContent = '';
+    break;
+    case 1:
+      display.textContent = `You should know that you can't divide by zero...`;
+      num1 = '';
+      inputBox.textContent = '';
+    break;
+    case 2:
+      display.textContent = `Come on now, you know you can't divide by zero.`;
+      num1 = '';
+      inputBox.textContent = '';
+    break;
+    case 3:
+      display.textContent = `How many times have you tried dividing by zero?`;
+      num1 = '';
+      inputBox.textContent = '';
+    break;
+    case 4:
+      display.textContent = `This is elementary-level math. You can't divide be zero.`;
+      num1 = '';
+      inputBox.textContent = '';
+    break;
+    case 5:
+      display.textContent = `You keep trying, but you'll never divide by zero.`;
+      num1 = '';
+      inputBox.textContent = '';
+    break;
+    case 6:
+      display.textContent = `Bruh`;
+      num1 = '';
+      inputBox.textContent = '';
+    break;
+    case 7:
+      display.textContent = `This is getting ridiculous.`;
+      num1 = '';
+      inputBox.textContent = '';
+    break;
+    case 8:
+      display.textContent = `I don't have an infinite number of responses you know!`;
+      num1 = '';
+      inputBox.textContent = '';
+    break;
+  };
+
+}
+
+const divide = (a, b) => {
   if(operator === '/') {
     if(a === 0 || b === 0) {
-      display.textContent = 'You cannot divide by zero!'
-      return null;
+      randomResponses()
     }
     else {
-      let solution = a / b;
-      return solution;
+      return a / b;
     }
   }
   else {
@@ -72,6 +114,30 @@ const divide = (a, operator, b) => {
 
 // const sqrRoot = (a, operator) => {
 //   if(operator === '√x') {
+//  
+// ***** NEEDS FUNCTION *****  
+//
+//     return solution;
+//   }
+//   else {
+//     return null
+//   }
+// }
+
+// const squared = (a, operator) => {
+//   if(operator === 'x²') {
+//  
+// ***** NEEDS FUNCTION *****  
+//
+//     return solution;
+//   }
+//   else {
+//     return null
+//   }
+// }
+
+// const squared = (a, operator) => {
+//   if(operator === '%') {
 //  
 // ***** NEEDS FUNCTION *****  
 //
@@ -121,36 +187,51 @@ operators.forEach((op) => {
       opProcessor(e.target.textContent)
       display.textContent = num2 + " " + operator;
       inputBox.textContent = '';
-        
     })
     
 });
 
 equalBtn.addEventListener('click', () => {
   operate()
-  inputBox.textContent = '';
-  if (operator === '/'){
-  }
-  else {
-    display.textContent = num2 + ` ` + operator + ` ` + num1 + ` ` + `= ` + solution;
-    display.style = ('font-weight: bold');
-  }
-  num1='';
+  display.textContent = '';
+  inputBox.textContent = num2;
+  num1 = num2;
 });
+
+// const operate = () => {
+//   num1 = Number(num1);
+//   num2 = Number(num2);
+//   if(operator === '+') {
+//     add(num2, num1);
+//     num2 = num2.toString();
+//     num1 = num1.toString();
+//   }
+//   else if(operator === '-') {
+//     return subtract(num2, num1)
+//   }
+//   else if(operator === '*') {
+//     return multiply(num2, num1)
+//   }
+//   else {
+//     return divide(num2, num1)
+//   }
+// };
 
 const operate = () => {
   num1 = Number(num1);
   num2 = Number(num2);
   if(operator === '+') {
-    return add(num2, '+', num1)
+    return add(num2, num1)
   }
   else if(operator === '-') {
-    return subtract(num2, '-', num1)
+    num2 -= num1;
   }
   else if(operator === '*') {
-    return multiply(num2, '*', num1)
+    num2 *= num1;
   }
-  else if(operator === '/') {
-    return divide(num2, '/', num1)
+  else {
+    num2 /= num1;
   }
+  num2 = num2.toString();
+  num1 = num1.toString();
 };
