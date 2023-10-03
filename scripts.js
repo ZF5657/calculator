@@ -56,7 +56,6 @@ const multiply = (a, b) => {
 
 // Random responses when user tries to divide zero
 let randomResponses = () => {
-  display.style = ('font-size: medium');
   const randomChoice = Math.floor(Math.random() * 9);
   switch (randomChoice) {
     case 0:
@@ -111,6 +110,7 @@ let randomResponses = () => {
 const divide = (a, b) => {
   if(operator === '/') {
     if(a === 0 || b === 0) {
+      display.style = ('font-size: medium');
       solution = randomResponses();
       return solution;
     }
