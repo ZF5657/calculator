@@ -8,19 +8,26 @@ const numbers = document.querySelectorAll('.number');
 const equalBtn = document.querySelector('.equals');
 const darkBtn = document.querySelector('.dark');
 
+// Darkmode toggle function
 const darkMode = () => {
   document.body.classList.toggle('dark-theme');
 }
 
+// Darkmodebutton calling toggle function when clicked
 darkBtn.addEventListener('click', () => {
   darkMode();
-
 });
 
-// adds functions to the operators
+let num1 = '';
+let num2 = '';
+let solution = '';
+let operator = '';
+
+// Adds functions to the operators
 const add = (a, b) => {
   if(operator === '+') {
-    return a + b;
+    solution = a + b;
+    return solution;
   }
   else {
     return null;
@@ -29,7 +36,8 @@ const add = (a, b) => {
 
 const subtract = (a, b) => {
   if(operator === '-') {
-    return a - b;
+    solution = a - b;
+    return solution;
   }
   else {
     return null;
@@ -38,73 +46,77 @@ const subtract = (a, b) => {
 
 const multiply = (a, b) => {
   if(operator === '*') {
-    return a * b;
+    solution = a * b;
+    return solution;
   }
   else {
     return null;
   }
 }
 
+// Random responses when user tries to divide zero
 let randomResponses = () => {
-  Math.floor(Math.random() * 6)
+  display.style = ('font-size: medium');
   const randomChoice = Math.floor(Math.random() * 9);
   switch (randomChoice) {
     case 0:
-      display.textContent = `You can't divide by zero.`;
+      return `You can't divide by zero.`;
       num1 = '';
       inputBox.textContent = '';
     break;
     case 1:
-      display.textContent = `You should know that you can't divide by zero...`;
+      return `You should know that you can't divide by zero...`;
       num1 = '';
       inputBox.textContent = '';
     break;
     case 2:
-      display.textContent = `Come on now, you know you can't divide by zero.`;
+      return `Come on now, you know you can't divide by zero.`;
       num1 = '';
       inputBox.textContent = '';
     break;
     case 3:
-      display.textContent = `How many times have you tried dividing by zero?`;
+      return `How many times have you tried dividing by zero?`;
       num1 = '';
       inputBox.textContent = '';
     break;
     case 4:
-      display.textContent = `This is elementary-level math. You can't divide be zero.`;
+      return `This is elementary-level math. You can't divide be zero.`;
       num1 = '';
       inputBox.textContent = '';
     break;
     case 5:
-      display.textContent = `You keep trying, but you'll never divide by zero.`;
+      return`You keep trying, but you'll never divide by zero.`;
       num1 = '';
       inputBox.textContent = '';
     break;
     case 6:
-      display.textContent = `Bruh`;
+      return `Bruh`;
       num1 = '';
       inputBox.textContent = '';
     break;
     case 7:
-      display.textContent = `This is getting ridiculous.`;
+      return `This is getting ridiculous.`;
       num1 = '';
       inputBox.textContent = '';
     break;
     case 8:
-      display.textContent = `I don't have an infinite number of responses you know!`;
+      return `I don't have an infinite number of responses you know!`;
       num1 = '';
       inputBox.textContent = '';
+
     break;
   };
-
 }
 
 const divide = (a, b) => {
   if(operator === '/') {
     if(a === 0 || b === 0) {
-      randomResponses()
+      solution = randomResponses();
+      return solution;
     }
     else {
-      return a / b;
+      solution = a / b;
+      return solution;
     }
   }
   else {
@@ -148,19 +160,18 @@ const divide = (a, b) => {
 //   }
 // }
 
-let num1 = '';
-let num2 = '';
-
+// Function to append each button clicked
 const numInput = (val) => {
   num1 += val;
 };
 
+// Adds the numInput value(s) into inputBox as textContent
 numbers.forEach((number) => number.addEventListener('click', (e) => {
     numInput(e.target.textContent);
     inputBox.textContent = num1;
 }));
 
-//adds a clear all function to the "C" button
+// Adds a clear all function to the "C" button
 clearAllBtn.addEventListener('click', () => {
   inputBox.textContent = '';
   display.textContent = '';
@@ -169,23 +180,35 @@ clearAllBtn.addEventListener('click', () => {
   operator = '';
 });
 
-//adds function to the clearInput button by clearing out the text content and num1
-//num1 is also clears so that it is not saved when resubmitting another number after clicking "CE"
+// Adds function to the clearInput button by clearing out the text content and num1
+// num1 is also clears so that it is not saved when resubmitting another number after clicking "CE"
 clearInput.addEventListener('click', () => {
   inputBox.textContent = '';
   num1 = '';
 });
 
+// Function to block the operator symbol from displaying before a number has been clicked
+const displayInput = () => {
+  if(num1 === '' && num2 === '') {
+    return null
+  }
+  else {
+    display.textContent = num2 + " " + operator;
+  }
+}
+
+// Sets operator to op for other functions; transfers num1 to num2 and then makes num1 blank
 const opProcessor = (op) => {
     operator = op;
     num2 = num1;
     num1 = '';
 };
 
+// Each operator clicked will pop up in the display with the first number of the equation
 operators.forEach((op) => {
     op.addEventListener('click', (e) => {
       opProcessor(e.target.textContent)
-      display.textContent = num2 + " " + operator;
+      displayInput()
       inputBox.textContent = '';
     })
     
@@ -193,45 +216,24 @@ operators.forEach((op) => {
 
 equalBtn.addEventListener('click', () => {
   operate()
-  display.textContent = '';
-  inputBox.textContent = num2;
-  num1 = num2;
+  display.textContent = solution;
+  inputBox.textContent = '';
+  num1 = '';
 });
-
-// const operate = () => {
-//   num1 = Number(num1);
-//   num2 = Number(num2);
-//   if(operator === '+') {
-//     add(num2, num1);
-//     num2 = num2.toString();
-//     num1 = num1.toString();
-//   }
-//   else if(operator === '-') {
-//     return subtract(num2, num1)
-//   }
-//   else if(operator === '*') {
-//     return multiply(num2, num1)
-//   }
-//   else {
-//     return divide(num2, num1)
-//   }
-// };
 
 const operate = () => {
   num1 = Number(num1);
   num2 = Number(num2);
   if(operator === '+') {
-    return add(num2, num1)
+    return add(num2, num1);
   }
   else if(operator === '-') {
-    num2 -= num1;
+    return subtract(num2, num1);
   }
   else if(operator === '*') {
-    num2 *= num1;
+    return multiply(num2, num1);
   }
   else {
-    num2 /= num1;
+    return divide(num2, num1);
   }
-  num2 = num2.toString();
-  num1 = num1.toString();
 };
