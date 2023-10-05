@@ -185,6 +185,7 @@ button {
     color: white;
     border: 1px solid black;
     border-radius: 3px;
+    font-size: medium;
 }
 
 .dark:hover {

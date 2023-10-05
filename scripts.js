@@ -180,6 +180,12 @@ clearAllBtn.addEventListener('click', () => {
   operator = '';
 });
 
+// Function for the backspace button (backBtn)
+backBtn.addEventListener('click', () => {
+  inputBox.textContent = inputBox.textContent.toString().slice(0, -1);
+  num1 = num1.toString().slice(0, -1);
+})
+
 // Adds function to the clearInput button by clearing out the text content and num1
 // num1 is also clears so that it is not saved when resubmitting another number after clicking "CE"
 clearInput.addEventListener('click', () => {
@@ -192,6 +198,9 @@ const displayInput = () => {
   if(num1 === '' && num2 === '') {
     return null
   }
+  // else if(inputBox.textContent.includes('.')) {
+  //   return null
+  // }
   else {
     display.textContent = num2 + " " + operator;
   }
