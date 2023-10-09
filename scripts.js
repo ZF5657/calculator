@@ -252,7 +252,7 @@ operators.forEach((op) => {
       display.style = ('font-weight: 400')
       opProcessor(e.target.textContent)
       displayInput()
-      inputBox.textContent = ''
+      inputBox.textContent = 0
     });
 });
 
