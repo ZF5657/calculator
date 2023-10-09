@@ -26,17 +26,23 @@
 }
 
 .showNum {
+    display: flex;
     font-size: x-large;
     height: 37.5px;
     padding-left: 5px;
+    padding-right: 5px;
     background: white;
+    justify-content: right;
 }
 
 .inputBox {
+    display: flex;
     height: 37.5px;
     font-size: xx-large;
     padding-left: 5px;
+    padding-right: 5px;
     background: white;
+    justify-content: right;
 }
 
 .calculator {

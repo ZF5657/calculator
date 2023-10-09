@@ -7,6 +7,7 @@ const operators = document.querySelectorAll('.op');
 const numbers = document.querySelectorAll('.number');
 const equalBtn = document.querySelector('.equals');
 const darkBtn = document.querySelector('.dark');
+const posNeg = document.querySelector('.posNeg');
 
 // Darkmode toggle function
 const darkMode = () => {
@@ -18,6 +19,7 @@ darkBtn.addEventListener('click', () => {
   darkMode();
 });
 
+inputBox.textContent = 0
 let num1 = '';
 let num2 = '';
 let solution = '';
@@ -148,11 +150,9 @@ const divide = (a, b) => {
 //   }
 // }
 
-// const squared = (a, operator) => {
+// const percent = (a, b) => {
 //   if(operator === '%') {
-//  
-// ***** NEEDS FUNCTION *****  
-//
+//     solution = a / 100
 //     return solution;
 //   }
 //   else {
@@ -171,9 +171,16 @@ numbers.forEach((number) => number.addEventListener('click', (e) => {
     inputBox.textContent = num1;
 }));
 
+// Function for the negative button
+posNeg.addEventListener('click', () => {
+  num1 = num1 * -1
+  inputBox.textContent = num1;
+
+})
+
 // Adds a clear all function to the "C" button
 clearAllBtn.addEventListener('click', () => {
-  inputBox.textContent = '';
+  inputBox.textContent = 0
   display.textContent = '';
   num1 = '';
   num2 = '';
@@ -181,17 +188,43 @@ clearAllBtn.addEventListener('click', () => {
 });
 
 // Function for the backspace button (backBtn)
+// Both inputBox and num1 need to be cleared because:
+// 1. inputBox will change but num1 value will not
+// 2. num1 will change but not inputBox textContent
 backBtn.addEventListener('click', () => {
-  inputBox.textContent = inputBox.textContent.toString().slice(0, -1);
-  num1 = num1.toString().slice(0, -1);
-})
+  inputBox.textContent = inputBox.textContent.toString().slice(0, -1)
+  num1 = num1.toString().slice(0, -1)
+});
+
+const clearEntry = () => {
+  inputBox.textContent = 0
+  num1 = ''
+}
 
 // Adds function to the clearInput button by clearing out the text content and num1
 // num1 is also clears so that it is not saved when resubmitting another number after clicking "CE"
 clearInput.addEventListener('click', () => {
-  inputBox.textContent = '';
-  num1 = '';
+  clearEntry()
 });
+
+const operate = () => {
+  num1 = Number(num1);
+  num2 = Number(num2);
+  if(operator === '+') {
+    return add(num2, num1)
+  }
+  else if(operator === '-') {
+    return subtract(num2, num1)
+  }
+  else if(operator === '*') {
+    return multiply(num2, num1)
+  }
+  else if (operator === '%')
+    return percent(num2, num1)
+  else {
+    return divide(num2, num1)
+  }
+};
 
 // Function to block the operator symbol from displaying before a number has been clicked
 const displayInput = () => {
@@ -202,47 +235,39 @@ const displayInput = () => {
   //   return null
   // }
   else {
-    display.textContent = num2 + " " + operator;
+    display.textContent = num2 + " " + operator
   }
 }
 
 // Sets operator to op for other functions; transfers num1 to num2 and then makes num1 blank
 const opProcessor = (op) => {
-    operator = op;
-    num2 = num1;
-    num1 = '';
+    operator = op
+    num2 = num1
+    num1 = ''
 };
 
 // Each operator clicked will pop up in the display with the first number of the equation
 operators.forEach((op) => {
     op.addEventListener('click', (e) => {
+      display.style = ('font-weight: 400')
       opProcessor(e.target.textContent)
       displayInput()
-      inputBox.textContent = '';
-    })
-    
+      inputBox.textContent = ''
+    });
 });
 
+// Function fo equal button and will save the solution and add operator to it if no number is hit first
 equalBtn.addEventListener('click', () => {
   operate()
-  display.textContent = solution;
+  display.style = ('font-size: x-large; font-weight: bold')
+  display.textContent = display.textContent + " " + num1 + " " + `=` + " " + solution;
   inputBox.textContent = '';
-  num1 = '';
+  num1 = solution;
+  if(num1 = solution) {
+    numbers.forEach((number) => number.addEventListener('click', (e) => {
+      num1 = '';
+      numInput(e.target.textContent);
+      inputBox.textContent = num1;
+    }));
+  }
 });
-
-const operate = () => {
-  num1 = Number(num1);
-  num2 = Number(num2);
-  if(operator === '+') {
-    return add(num2, num1);
-  }
-  else if(operator === '-') {
-    return subtract(num2, num1);
-  }
-  else if(operator === '*') {
-    return multiply(num2, num1);
-  }
-  else {
-    return divide(num2, num1);
-  }
-};
