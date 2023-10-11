@@ -24,6 +24,7 @@ let num1 = '';
 let num2 = '';
 let solution = '';
 let operator = '';
+let numClicked = true;
 
 // Adds functions to the operators
 const add = (a, b) => {
@@ -138,17 +139,15 @@ const divide = (a, b) => {
 //   }
 // }
 
-// const squared = (a, operator) => {
-//   if(operator === 'x²') {
-//  
-// ***** NEEDS FUNCTION *****  
-//
-//     return solution;
-//   }
-//   else {
-//     return null
-//   }
-// }
+const exponent = (a, b) => {
+  if(operator === 'xⁿ') {
+    solution = Math.pow(a, b)
+    return solution
+  }
+  else {
+    return null
+  }
+}
 
 // const percent = (a, b) => {
 //   if(operator === '%') {
@@ -168,7 +167,15 @@ const numInput = (val) => {
 // Adds the numInput value(s) into inputBox as textContent
 numbers.forEach((number) => number.addEventListener('click', (e) => {
     numInput(e.target.textContent);
-    inputBox.textContent = num1;
+    inputBox.textContent = num1
+    numClicked = true
+    if(num1 == solution && numClicked == false) {
+      solution = ''
+      num1 = ''
+      numClicked = true
+      numInput(e.target.textContent);
+      inputBox.textContent = num1
+    }
 }));
 
 // Function for the negative button
@@ -219,8 +226,12 @@ const operate = () => {
   else if(operator === '*') {
     return multiply(num2, num1)
   }
-  else if (operator === '%')
+  else if(operator === '%') {
     return percent(num2, num1)
+  }
+  else if(operator === 'xⁿ') {
+    return exponent(num2, num1)
+  }
   else {
     return divide(num2, num1)
   }
@@ -234,14 +245,19 @@ const displayInput = () => {
   // else if(inputBox.textContent.includes('.')) {
   //   return null
   // }
+  else if(operator === 'xⁿ') {
+    display.textContent = num2 + " " + '^'
+  }
   else {
     display.textContent = num2 + " " + operator
   }
 }
 
+
+
 // Sets operator to op for other functions; transfers num1 to num2 and then makes num1 blank
 const opProcessor = (op) => {
-    operator = op
+  operator = op
     num2 = num1
     num1 = ''
 };
@@ -249,6 +265,7 @@ const opProcessor = (op) => {
 // Each operator clicked will pop up in the display with the first number of the equation
 operators.forEach((op) => {
     op.addEventListener('click', (e) => {
+      operate()
       display.style = ('font-weight: 400')
       opProcessor(e.target.textContent)
       displayInput()
@@ -259,10 +276,13 @@ operators.forEach((op) => {
 // Function fo equal button and will save the solution and add operator to it if no number is hit first
 equalBtn.addEventListener('click', () => {
   operate()
-  display.style = ('font-size: x-large; font-weight: bold')
+  display.style = ('font-size: large; font-weight: bold')
   display.textContent = display.textContent + " " + num1 + " " + `=` + " " + solution;
   inputBox.textContent = '';
+  numClicked = false;
   num1 = solution;
+  
+  // Resets num1 so that the equation will restart instead of saving/continuing with the solution
   if(num1 = solution) {
     numbers.forEach((number) => number.addEventListener('click', (e) => {
       num1 = '';
