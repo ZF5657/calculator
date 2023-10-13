@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return exponent(num2, num1)
     }
     else if(operator === '√x') {
-      return sqrRoot(num2)
+      return sqrRoot(num1)
     }
     else {
       return divide(num2, num1)
@@ -253,10 +253,15 @@ document.addEventListener("DOMContentLoaded", () => {
       display.textContent = num2 + " " + '^'
     }
     else if(operator === '√x') {
-      display.textContent = operator + " " + num2
+      display.textContent = ''
+      num2 = ''
+      operate()
+      num1 = solution
+      inputBox.textContent = num1
     }
     else {
       display.textContent = num2 + " " + operator
+      inputBox.textContent = 0
     }
   }
 
@@ -265,8 +270,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Sets operator to op for other functions; transfers num1 to num2 and then makes num1 blank
   const opProcessor = (op) => {
     operator = op
-    num2 = num1
-    num1 = ''
+    if(operator === '√x') {
+      num2 = ''
+    }
+    else {
+      num2 = num1
+      num1 = ''
+    }
   };
 
   // Each operator clicked will pop up in the display with the first number of the equation
@@ -275,7 +285,6 @@ document.addEventListener("DOMContentLoaded", () => {
         display.style = ('font-weight: 400')
         opProcessor(e.target.textContent)
         displayInput()
-        inputBox.textContent = 0
       });
   });
 
