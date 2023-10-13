@@ -7,17 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const operators = document.querySelectorAll('.op');
   const numbers = document.querySelectorAll('.number');
   const equalBtn = document.querySelector('.equals');
-  const darkBtn = document.querySelector('.dark');
+  const retroBtn = document.querySelector('.retro');
   const posNeg = document.querySelector('.posNeg');
   
-  // Darkmode toggle function
-  const darkMode = () => {
-    document.body.classList.toggle('dark-theme');
+  // Retro mode toggle function
+  const retroMode = () => {
+    document.body.classList.toggle('retro-theme');
   }
   
-  // Darkmodebutton calling toggle function when clicked
-  darkBtn.addEventListener('click', () => {
-    darkMode();
+  // retroBtn calling toggle function when clicked
+  retroBtn.addEventListener('click', () => {
+    retroMode()
   });
   
   inputBox.textContent = 0
@@ -148,15 +148,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // const percent = (a, b) => {
-  //   if(operator === '%') {
-  //     solution = a / 100
-  //     return solution;
-  //   }
-  //   else {
-  //     return null
-  //   }
-  // }
+  const percent = (a, b) => {
+    if(operator === '%') {
+      solution = a / 100
+      return solution;
+    }
+    else {
+      return null
+    }
+  }
 
   // Function to append each button clicked
   const numInput = (val) => {
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return multiply(num2, num1)
     }
     else if(operator === '%') {
-      return percent(num2, num1)
+      return percent(num1)
     }
     else if(operator === 'xⁿ') {
       return exponent(num2, num1)
@@ -259,6 +259,18 @@ document.addEventListener("DOMContentLoaded", () => {
       num1 = solution
       inputBox.textContent = num1
     }
+    else if(operator === '%' && num2 === '') {
+      display.textContent = ''
+      num2 = ''
+      operate()
+      num1 = solution
+      inputBox.textContent = num1
+    }
+    else if(num2 !== '' && operator === '%') {
+      operate()
+      num1 = solution
+      inputBox.textContent = num1
+    }
     else {
       display.textContent = num2 + " " + operator
       inputBox.textContent = 0
@@ -273,6 +285,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if(operator === '√x') {
       num2 = ''
     }
+    else if(operator === '%' && num2 === '') {
+      num2 = ''
+    }
+    // else if(num2 !== '' && operator === '%') {
+    //   num1 = solution
+    //   inputBox.textContent = num1
+    // }
     else {
       num2 = num1
       num1 = ''
@@ -291,7 +310,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function fo equal button and will save the solution and add operator to it if no number is hit first
   equalBtn.addEventListener('click', () => {
     operate()
-    display.style = ('font-size: large; font-weight: bold')
+    display.style = ('font-size: x-large; font-weight: bold')
     display.textContent = display.textContent + " " + num1 + " " + `=` + " " + solution;
     inputBox.textContent = '';
     numClicked = false;

@@ -33,16 +33,18 @@
     padding-right: 5px;
     background: white;
     justify-content: right;
+    /* font-family: 'Calculator', sans-serif; */
 }
 
 .inputBox {
     display: flex;
     height: 37.5px;
-    font-size: xx-large;
+    font-size: 38px;
     padding-left: 5px;
     padding-right: 5px;
     background: white;
     justify-content: right;
+    /* font-family: 'Calculator', sans-serif; */
 }
 
 .calculator {
@@ -179,12 +181,12 @@ button {
     width: 50px;
 }
 
-.darkMode {
+.retroMode {
     display: flex;
     justify-content: center;
 }
 
-.dark {
+.retro {
     margin-top: 20px;
     width: 100px;
     background: rgb(73, 73, 73, 0.829);
@@ -194,15 +196,15 @@ button {
     font-size: medium;
 }
 
-.dark:hover {
+.retro:hover {
     background: rgb(51, 51, 51, 0.829);
 }
 
-.dark:active {
+.retro:active {
     background: rgb(94, 94, 94, 0.829);
 }
 
-.dark-theme {
+.retro-theme {
     background-color: rgb(10, 10, 10, 0.829);
 
     .title {
@@ -210,28 +212,32 @@ button {
     }
 
     .calculator {
-        border: 1px solid white;
-        background: rgb(10, 10, 10, 0.829);
+        border: none;
+        background: rgba(161, 149, 81, 0.753)
     }
 
     .display {
-        border: 1px solid white;
+        border: none;
     }
 
     .showNum {
-        color: white;
-        background: rgb(92, 92, 92);
+        color: red;
+        background: black;
+        font-family: 'Calculator', sans-serif;
     }
 
     .inputBox {
-        color: white;
-        background: rgb(92, 92, 92);
+        color: red;
+        background: black;
+        font-family: 'Calculator', sans-serif;
     }
 
     .equals {
         background-color: rgb(255, 211, 67);
-        border: 1px solid black;
-        border-radius: 3px;
+        border: none;
+        border-radius: 0px;
+        height: 23px;
+        width: 50px;
     }
 
     .equals:hover {
@@ -243,10 +249,12 @@ button {
     }
 
     .op {
-        color: white;
-        background-color: rgb(73, 73, 73, 0.829);
-        border: 1px solid black;
-        border-radius: 3px;
+        color: black;
+        background-color: rgba(245, 245, 245, 0.932);
+        border: none;
+        border-radius: 0px;
+        height: 23px;
+        width: 50px;
     }
 
     .op:hover {
@@ -258,10 +266,12 @@ button {
     }
 
     .number {
-        color: white;
-        background-color: rgb(73, 73, 73, 0.829);
-        border: 1px solid black;
-        border-radius: 3px;
+        color: black;
+        background-color: rgba(245, 245, 245, 0.932);
+        border: none;
+        border-radius: 0px;
+        height: 23px;
+        width: 50px;
     }
 
     .number:hover {
@@ -273,10 +283,12 @@ button {
     }
 
     .posNeg {
-        color: white;
-        background-color: rgb(73, 73, 73, 0.829);
-        border: 1px solid black;
-        border-radius: 3px;
+        color: black;
+        background-color: rgba(245, 245, 245, 0.932);
+        border: none;
+        border-radius: 0px;
+        height: 23px;
+        width: 50px;
     }
 
     .posNeg:hover {
@@ -288,10 +300,12 @@ button {
     }
 
     .clearAll {
-        color: white;
-        background-color: rgb(73, 73, 73, 0.829);
-        border: 1px solid black;
-        border-radius: 3px;
+        color: black;
+        background-color: rgba(245, 245, 245, 0.932);
+        border: none;
+        border-radius: 0px;
+        height: 23px;
+        width: 50px;
     }
 
     .clearAll:hover {
@@ -303,10 +317,12 @@ button {
     }
 
     .clearInput {
-        color: white;
-        background-color: rgb(73, 73, 73, 0.829);
-        border: 1px solid black;
-        border-radius: 3px;
+        color: black;
+        background-color: rgba(245, 245, 245, 0.932);
+        border: none;
+        border-radius: 0px;
+        height: 23px;
+        width: 50px;
     }
 
     .clearInput:hover {
@@ -318,10 +334,13 @@ button {
     }
 
     .backspace {
-        color: white;
-        background-color: rgb(73, 73, 73, 0.829);
-        border: 1px solid black;
-        border-radius: 3px;
+        color: black;
+        background-color: rgba(245, 245, 245, 0.932);
+        border: none;
+        border-radius: 0px;
+        height: 23px;
+        width: 50px;
+        font-size: 18px;
     }
 
     .backspace:hover {
