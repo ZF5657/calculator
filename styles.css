@@ -72,92 +72,97 @@
 .operations {
     border: none;
     border-radius: 3px;
+}
 
+.btnBottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .clearRow {
     display: flex;
     justify-content: center;
-}
-
-.clearAll {
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-bottom: 10px;
 }
 
 .group1 {
     display: flex;
-    margin-top: 8px;
-    margin-bottom: 8px;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .group2 {
     display: flex;
-    margin-bottom: 8px;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .group3 {
     display: flex;
-    margin-bottom: 8px;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .group4 {
     display: flex;
-    margin-bottom: 8px;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .group5 {
     display: flex;
-    margin-bottom: 8px;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
-#squared {
+#clearAllWhole {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#squareRoot {
-    margin-right: 15px;
-}
-
-#two {
+#squaredWhole {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#three {
+#sqrRootWhole {
+    margin-right: 15px;
+}
+
+#twoWhole {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#threeWhole {
     margin-right: 15px;  
 }
 
-#five {
+#fiveWhole {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#six {
+#sixWhole {
     margin-right: 15px;
 }
 
-#eight {
+#eightWhole {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#nine {
+#nineWhole {
     margin-right: 15px;  
 }
 
-#zero {
+#zeroWhole {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#decimal {
+#decWhole {
     margin-right: 15px; 
 }
 
@@ -230,6 +235,20 @@ button {
         color: red;
         background: black;
         font-family: 'Calculator', sans-serif;
+    }
+
+    .btnBottom {
+        background: rgba(245, 245, 245, 0.658);
+        height: 10px;
+        width: 50px;
+    }
+
+    .wholeBtn {
+        border: 1px solid rgb(97, 97, 97);
+    }
+
+    #btnBottom_equal {
+        background: rgba(255, 211, 67, 0.726);
     }
 
     .equals {
