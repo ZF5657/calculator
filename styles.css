@@ -72,97 +72,92 @@
 .operations {
     border: none;
     border-radius: 3px;
-}
 
-.btnBottom {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .clearRow {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+}
+
+.clearAll {
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .group1 {
     display: flex;
+    margin-top: 8px;
+    margin-bottom: 8px;
     justify-content: center;
-    margin-bottom: 10px;
 }
 
 .group2 {
     display: flex;
+    margin-bottom: 8px;
     justify-content: center;
-    margin-bottom: 10px;
 }
 
 .group3 {
     display: flex;
+    margin-bottom: 8px;
     justify-content: center;
-    margin-bottom: 10px;
 }
 
 .group4 {
     display: flex;
+    margin-bottom: 8px;
     justify-content: center;
-    margin-bottom: 10px;
 }
 
 .group5 {
     display: flex;
+    margin-bottom: 8px;
     justify-content: center;
-    margin-bottom: 10px;
 }
 
-#clearAllWhole {
+#squared {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#squaredWhole {
+#squareRoot {
+    margin-right: 15px;
+}
+
+#two {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#sqrRootWhole {
-    margin-right: 15px;
-}
-
-#twoWhole {
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
-#threeWhole {
+#three {
     margin-right: 15px;  
 }
 
-#fiveWhole {
+#five {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#sixWhole {
+#six {
     margin-right: 15px;
 }
 
-#eightWhole {
+#eight {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#nineWhole {
+#nine {
     margin-right: 15px;  
 }
 
-#zeroWhole {
+#zero {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#decWhole {
+#decimal {
     margin-right: 15px; 
 }
 
@@ -237,30 +232,18 @@ button {
         font-family: 'Calculator', sans-serif;
     }
 
-    .btnBottom {
-        background: rgba(245, 245, 245, 0.658);
-        height: 10px;
-        width: 50px;
-    }
-
-    .wholeBtn {
-        border: 1px solid rgb(97, 97, 97);
-    }
-
-    #btnBottom_equal {
-        background: rgba(255, 211, 67, 0.726);
-    }
-
     .equals {
-        background-color: rgb(255, 211, 67);
-        border: none;
+        /* background-color: rgb(255, 211, 67); */
+        /* background: linear-gradient(0deg, rgb(219, 173, 19) 50%, rgb(255, 211, 67) 50%); */ 
+        background: linear-gradient(to bottom, #ffd728 68%,#d4a90c 68%);
+        border: 1px solid rgb(110, 110, 110);
         border-radius: 0px;
-        height: 23px;
+        height: 28px;
         width: 50px;
     }
 
     .equals:hover {
-        background: rgb(255, 196, 0);
+        filter: brightness(1.1);
     }
     
     .equals:active {
@@ -272,7 +255,7 @@ button {
         background-color: rgba(245, 245, 245, 0.932);
         border: none;
         border-radius: 0px;
-        height: 23px;
+        height: 28px;
         width: 50px;
     }
 
@@ -289,7 +272,7 @@ button {
         background-color: rgba(245, 245, 245, 0.932);
         border: none;
         border-radius: 0px;
-        height: 23px;
+        height: 28px;
         width: 50px;
     }
 
@@ -306,7 +289,7 @@ button {
         background-color: rgba(245, 245, 245, 0.932);
         border: none;
         border-radius: 0px;
-        height: 23px;
+        height: 28px;
         width: 50px;
     }
 
@@ -323,7 +306,7 @@ button {
         background-color: rgba(245, 245, 245, 0.932);
         border: none;
         border-radius: 0px;
-        height: 23px;
+        height: 28px;
         width: 50px;
     }
 
@@ -340,7 +323,7 @@ button {
         background-color: rgba(245, 245, 245, 0.932);
         border: none;
         border-radius: 0px;
-        height: 23px;
+        height: 28px;
         width: 50px;
     }
 
@@ -357,7 +340,7 @@ button {
         background-color: rgba(245, 245, 245, 0.932);
         border: none;
         border-radius: 0px;
-        height: 23px;
+        height: 28px;
         width: 50px;
         font-size: 18px;
     }
