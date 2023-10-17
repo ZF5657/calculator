@@ -233,13 +233,12 @@ button {
     }
 
     .equals {
-        /* background-color: rgb(255, 211, 67); */
-        /* background: linear-gradient(0deg, rgb(219, 173, 19) 50%, rgb(255, 211, 67) 50%); */ 
         background: linear-gradient(to bottom, #ffd728 68%,#d4a90c 68%);
-        border: 1px solid rgb(110, 110, 110);
+        border: 2px solid rgb(110, 110, 110);
         border-radius: 0px;
         height: 28px;
         width: 50px;
+        padding-bottom: 30px;
     }
 
     .equals:hover {
@@ -252,11 +251,12 @@ button {
 
     .op {
         color: black;
-        background-color: rgba(245, 245, 245, 0.932);
-        border: none;
+        background: linear-gradient(to bottom, #f5f5f5ee 68%,#b3b3b3ee 68%);
+        border: 2px solid rgb(110, 110, 110);
         border-radius: 0px;
         height: 28px;
         width: 50px;
+        padding-bottom: 30px;
     }
 
     .op:hover {
@@ -269,11 +269,12 @@ button {
 
     .number {
         color: black;
-        background-color: rgba(245, 245, 245, 0.932);
-        border: none;
+        background: linear-gradient(to bottom, #f5f5f5ee 68%,#b3b3b3ee 68%);
+        border: 2px solid rgb(110, 110, 110);
         border-radius: 0px;
         height: 28px;
         width: 50px;
+        padding-bottom: 30px;
     }
 
     .number:hover {
@@ -286,11 +287,12 @@ button {
 
     .posNeg {
         color: black;
-        background-color: rgba(245, 245, 245, 0.932);
-        border: none;
+        background: linear-gradient(to bottom, #f5f5f5ee 68%,#b3b3b3ee 68%);
+        border: 2px solid rgb(110, 110, 110);
         border-radius: 0px;
         height: 28px;
         width: 50px;
+        padding-bottom: 30px;
     }
 
     .posNeg:hover {
@@ -303,11 +305,12 @@ button {
 
     .clearAll {
         color: black;
-        background-color: rgba(245, 245, 245, 0.932);
-        border: none;
+        background: linear-gradient(to bottom, #f5f5f5ee 68%,#b3b3b3ee 68%);
+        border: 2px solid rgb(110, 110, 110);
         border-radius: 0px;
         height: 28px;
         width: 50px;
+        padding-bottom: 30px;
     }
 
     .clearAll:hover {
@@ -320,11 +323,12 @@ button {
 
     .clearInput {
         color: black;
-        background-color: rgba(245, 245, 245, 0.932);
-        border: none;
+        background: linear-gradient(to bottom, #f5f5f5ee 68%,#b3b3b3ee 68%);
+        border: 2px solid rgb(110, 110, 110);
         border-radius: 0px;
         height: 28px;
         width: 50px;
+        padding-bottom: 30px;
     }
 
     .clearInput:hover {
@@ -337,12 +341,13 @@ button {
 
     .backspace {
         color: black;
-        background-color: rgba(245, 245, 245, 0.932);
-        border: none;
+        background: linear-gradient(to bottom, #f5f5f5ee 68%,#b3b3b3ee 68%);
+        border: 2px solid rgb(110, 110, 110);
         border-radius: 0px;
         height: 28px;
         width: 50px;
         font-size: 18px;
+        padding-bottom: 30px;
     }
 
     .backspace:hover {
