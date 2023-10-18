@@ -268,7 +268,7 @@ button:hover {
         border-radius: 0px;
         height: 23px;
         width: 50px;
-        transition: .1s ease-in-out;
+        transition: .05s ease-in-out;
     }
 
     .equals:hover {
@@ -289,7 +289,7 @@ button:hover {
         border-radius: 0px;
         height: 23px;
         width: 50px;
-        transition: .1s ease-in-out;
+        transition: .05s ease-in-out;
     }
 
     .op:hover {
@@ -313,7 +313,7 @@ button:hover {
         border-radius: 0px;
         height: 23px;
         width: 50px;
-        transition: .1s ease-in-out;
+        transition: .05s ease-in-out;
     }
 
     .number:hover {
@@ -333,7 +333,7 @@ button:hover {
         border-radius: 0px;
         height: 23px;
         width: 50px;
-        transition: .1s ease-in-out;
+        transition: .05s ease-in-out;
     }
 
     .posNeg:hover {
@@ -353,7 +353,7 @@ button:hover {
         border-radius: 0px;
         height: 23px;
         width: 50px;
-        transition: .1s ease-in-out;
+        transition: .05s ease-in-out;
     }
 
     .clearAll:hover {
@@ -373,7 +373,7 @@ button:hover {
         border-radius: 0px;
         height: 23px;
         width: 50px;
-        transition: .1s ease-in-out;
+        transition: .05s ease-in-out;
     }
 
     .clearInput:hover {
@@ -393,7 +393,7 @@ button:hover {
         border-radius: 0px;
         height: 23px;
         width: 50px;
-        transition: .1s ease-in-out;
+        transition: .05s ease-in-out;
     }
 
     .backspace:hover {

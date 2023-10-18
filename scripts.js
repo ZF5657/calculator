@@ -1,14 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const display = document.querySelector(".showNum");
-  const inputBox = document.querySelector(".inputBox");
-  const clearInput = document.querySelector(".clearInput");
-  const clearAllBtn = document.querySelector(".clearAll");
-  const backBtn = document.querySelector(".backspace");
+  const display = document.querySelector('.showNum');
+  const inputBox = document.querySelector('.inputBox');
+  const clearInput = document.querySelector('.clearInput');
+  const clearAllBtn = document.querySelector('.clearAll');
+  const backBtn = document.querySelector('.backspace');
   const operators = document.querySelectorAll('.op');
   const numbers = document.querySelectorAll('.number');
   const equalBtn = document.querySelector('.equals');
   const retroBtn = document.querySelector('.retro');
   const posNeg = document.querySelector('.posNeg');
+  const decimal = document.querySelector('#decimal');
   
   // Retro mode toggle function
   const retroMode = () => {
@@ -109,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       break;
     };
-  }
+  };
 
   const divide = (a, b) => {
     if(operator === '/') {
@@ -136,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else {
       return null
     }
-  }
+  };
 
   const exponent = (a, b) => {
     if(operator === 'xⁿ') {
@@ -146,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else {
       return null
     }
-  }
+  };
 
   const percent = (a, b) => {
     if(operator === '%') {
@@ -156,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else {
       return null
     }
-  }
+  };
 
   // Function to append each button clicked
   const numInput = (val) => {
@@ -168,12 +169,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Checks if num1 is storing solution (after = btn is clicked) and resets the equation
     if(numClicked == false && num1 == solution) {
       num1 = ''
+      if(e.target.textContent == '.' && num1.indexOf('.') >= 0) {
+        return;
+      }
       numInput(e.target.textContent);
       inputBox.textContent = num1
       numClicked = true
     }
     else {
       numClicked = true
+      if(e.target.textContent == '.' && num1.indexOf('.') >= 0) {
+        return;
+      }
       numInput(e.target.textContent);
       inputBox.textContent = num1
     }
