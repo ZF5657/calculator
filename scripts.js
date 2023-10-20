@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let num2 = '';
   let solution = '';
   let operator = '';
-  let numClicked = true;
+  let numClicked = false;
   
   // Adds functions to the operators
   const add = (a, b) => {
@@ -222,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
     clearEntry()
   });
 
+  //operates the equations based on which operator is chosen
   const operate = () => {
     num1 = Number(num1);
     num2 = Number(num2);
@@ -253,9 +254,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if(num1 === '' && num2 === '') {
       return null
     }
-    // else if(inputBox.textContent.includes('.')) {
-    //   return null
-    // }
     else if(operator === 'xⁿ') {
       display.textContent = num2 + " " + '^'
     }
@@ -299,6 +297,11 @@ document.addEventListener("DOMContentLoaded", () => {
     //   num1 = solution
     //   inputBox.textContent = num1
     // }
+    else if(!num2 == '' && !num1 == '') {
+      operate()
+      num2 = solution;
+      num1 = ''
+    }
     else {
       num2 = num1
       num1 = ''
@@ -316,11 +319,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function fo equal button and will save the solution and add operator to it if no number is hit first
   equalBtn.addEventListener('click', () => {
-    operate()
-    display.style = ('font-size: x-large; font-weight: bold')
-    display.textContent = display.textContent + " " + num1 + " " + `=` + " " + solution;
-    inputBox.textContent = '';
-    numClicked = false;
-    num1 = solution
+    if(num2 == '' || num1 == '') {
+      return;
+    }
+    else {
+      operate()
+      display.style = ('font-size: large; font-weight: bold')
+      display.textContent = display.textContent + " " + num1 + " " + `=` + " " + solution;
+      inputBox.textContent = '';
+      numClicked = false;
+      num1 = solution
+      num2 = '';
+    }
   });
 });
