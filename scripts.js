@@ -297,9 +297,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //   num1 = solution
     //   inputBox.textContent = num1
     // }
-    else if(!num2 == '' && !num1 == '') {
-      operate()
-      num2 = solution;
+    else if(!num2 == '' && numClicked == true) {
+      num2 = solution
       num1 = ''
     }
     else {
@@ -311,9 +310,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Each operator clicked will pop up in the display with the first number of the equation
   operators.forEach((op) => {
       op.addEventListener('click', (e) => {
+        operate()
         display.style = ('font-weight: 400')
         opProcessor(e.target.textContent)
         displayInput()
+        numClicked = false
       });
   });
 
@@ -333,3 +334,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
+// if num2 = '' and numClicked = true,
+// when another operator or equals is clicked,
+// calculate and display
