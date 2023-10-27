@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Adds functions to the operators
   const add = (a, b) => {
-    if(operator === '+') {
+    if(operator == '+') {
       solution = a + b;
       return solution;
     }
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   
   const subtract = (a, b) => {
-    if(operator === '-') {
+    if(operator == '-') {
       solution = a - b;
       return solution;
     }
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   
   const multiply = (a, b) => {
-    if(operator === '*') {
+    if(operator == '*') {
       solution = a * b;
       return solution;
     }
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         inputBox.textContent = '';
       break;
       case 4:
-        return `This is elementary-level math. You can't divide be zero.`;
+        return `This is elementary-level math...`;
         num1 = '';
         inputBox.textContent = '';
       break;
@@ -113,8 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const divide = (a, b) => {
-    if(operator === '/') {
-      if(a === 0 || b === 0) {
+    if(operator == '/') {
+      if(a == 0 || b == 0) {
         display.style = ('font-size: medium');
         solution = randomResponses();
         return solution;
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const sqrRoot = (a) => {
-    if(operator === '√x') {
+    if(operator == '√x') {
       solution = Math.sqrt(a)
       return solution;
     }
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const exponent = (a, b) => {
-    if(operator === 'xⁿ') {
+    if(operator == 'xy') {
       solution = Math.pow(a, b)
       return solution
     }
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const percent = (a, b) => {
-    if(operator === '%') {
+    if(operator == '%') {
       solution = a / 100
       return solution;
     }
@@ -175,6 +175,9 @@ document.addEventListener("DOMContentLoaded", () => {
       numInput(e.target.textContent);
       inputBox.textContent = num1
       numClicked = true
+    }
+    else if(inputBox.textContent.length >= 15) {
+      return
     }
     else {
       numClicked = true
@@ -224,24 +227,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //operates the equations based on which operator is chosen
   const operate = () => {
-    num1 = Number(num1);
-    num2 = Number(num2);
-    if(operator === '+') {
+    num1 = Number(num1)
+    num2 = Number(num2)
+
+    if(operator == '+') {
       return add(num2, num1)
     }
-    else if(operator === '-') {
+    else if(operator == '-') {
       return subtract(num2, num1)
     }
-    else if(operator === '*') {
+    else if(operator == '*') {
       return multiply(num2, num1)
     }
-    else if(operator === '%') {
+    else if(operator == '%') {
       return percent(num1)
     }
-    else if(operator === 'xⁿ') {
+    else if(operator == 'xy') {
       return exponent(num2, num1)
     }
-    else if(operator === '√x') {
+    else if(operator == '√x') {
       return sqrRoot(num1)
     }
     else {
@@ -251,27 +255,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function to block the operator symbol from displaying before a number has been clicked
   const displayInput = () => {
-    if(num1 === '' && num2 === '') {
+    if(num1 == '' && num2 == '') {
       return null
     }
-    else if(operator === 'xⁿ') {
+    else if(operator == 'xy') {
       display.textContent = num2 + " " + '^'
     }
-    else if(operator === '√x') {
+    else if(operator == '√x') {
       display.textContent = ''
       num2 = ''
       operate()
       num1 = solution
       inputBox.textContent = num1
     }
-    else if(operator === '%' && num2 === '') {
+    else if(operator == '%' && num2 == '') {
       display.textContent = ''
       num2 = ''
       operate()
       num1 = solution
       inputBox.textContent = num1
     }
-    else if(num2 !== '' && operator === '%') {
+    else if(!num2 == '' && operator == '%') {
       operate()
       num1 = solution
       inputBox.textContent = num1
@@ -287,16 +291,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // Sets operator to op for other functions; transfers num1 to num2 and then makes num1 blank
   const opProcessor = (op) => {
     operator = op
-    if(operator === '√x') {
+    if(operator == '√x') {
       num2 = ''
     }
-    else if(operator === '%' && num2 === '') {
+    else if(operator == '%' && num2 == '') {
       num2 = ''
     }
-    // else if(num2 !== '' && operator === '%') {
-    //   num1 = solution
-    //   inputBox.textContent = num1
-    // }
+    else if(operator == '%' && !num2 == '') {
+      num2 = ''
+      num1 = solution
+      inputBox.textContent = num1
+    }
     else if(!num2 == '' && numClicked == true) {
       num2 = solution
       num1 = ''
@@ -320,23 +325,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function fo equal button and will save the solution and add operator to it if no number is hit first
   equalBtn.addEventListener('click', () => {
-    if(num2 == '' || num1 == '') {
+    if(num2 == NaN || num1 == NaN || num2 == '' && num1 == '' || num2 == '' && !num1 == '') {
       return;
     }
     else {
       operate()
       display.style = ('font-size: large; font-weight: bold')
-      display.textContent = display.textContent + " " + num1 + " " + `=` + " " + solution;
+      display.textContent = display.textContent + " " + num1 + " " + `=` + " " + solution
       inputBox.textContent = '';
       numClicked = false;
       num1 = solution
       num2 = '';
     }
   });
+
+  // window.addEventListener('keypress', function(e) {
+  //   let targetKey = e.key;
+  //   if(e.key === "Enter") targetKey = '=';
+  //   if(e.key === "*") targetKey = 'x';
+  //   document.getElementById(targetKey).click(); 
+  // });
+  // window.addEventListener('keydown', function(e) {
+  //   let keyButton = e.key;
+  //   if(keyButton === "Backspace") document.getElementById("AC").click();
+     
+  // })
+
 });
-
-
-
-// if num2 = '' and numClicked = true,
-// when another operator or equals is clicked,
-// calculate and display
