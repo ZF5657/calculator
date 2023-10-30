@@ -323,32 +323,40 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  // Function fo equal button and will save the solution and add operator to it if no number is hit first
-  equalBtn.addEventListener('click', () => {
-    if(num2 == NaN || num1 == NaN || num2 == '' && num1 == '' || num2 == '' && !num1 == '') {
-      return;
-    }
-    else {
-      operate()
+  const equalFn = () => {
+    operate()
       display.style = ('font-size: large; font-weight: bold')
       display.textContent = display.textContent + " " + num1 + " " + `=` + " " + solution
       inputBox.textContent = '';
       numClicked = false;
       num1 = solution
       num2 = '';
+  }
+
+  // Function for equal button and will save the solution and add operator to it if no number is hit first
+  equalBtn.addEventListener('click', () => {
+    if(num2 == NaN || num1 == NaN || num2 == '' && num1 == '' || num2 == '' && !num1 == '') {
+      return;
+    }
+    else {
+      equalFn()
     }
   });
 
-  // window.addEventListener('keypress', function(e) {
-  //   let targetKey = e.key;
-  //   if(e.key === "Enter") targetKey = '=';
-  //   if(e.key === "*") targetKey = 'x';
-  //   document.getElementById(targetKey).click(); 
-  // });
-  // window.addEventListener('keydown', function(e) {
-  //   let keyButton = e.key;
-  //   if(keyButton === "Backspace") document.getElementById("AC").click();
-     
-  // })
-
+  //Keyboard support
+  window.addEventListener('keydown', (e) => {
+    let keyboardKey = e.key;
+    if(e.key >= 0 && e.key <= 9) {keyboardKey = document.getElementById(`num${e.key}`).click()};
+    if(e.key === ".") {keyboardKey = document.getElementById('decimal').click()};
+    if(e.key === "+") {keyboardKey = document.getElementById('add').click()};
+    if(e.key === "-") {keyboardKey = document.getElementById('subtract').click()};
+    if(e.key === "/") {keyboardKey = document.getElementById('divide').click()};
+    if(e.key === "*") {keyboardKey = document.getElementById('multiply').click()};
+    if(e.key === "Enter") {keyboardKey = equalBtn.click()};
+    if(e.key === "Backspace") {keyboardKey = backBtn.click()};
+    if(e.key === "Delete") {keyboardKey = clearAllBtn.click()};
+    if(e.key === "%") {keyboardKey = document.getElementById('percent').click()};
+    if(e.key === "^") {keyboardKey = document.getElementById('exponent').click()};
+  });
+  
 });

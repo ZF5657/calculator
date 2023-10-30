@@ -116,7 +116,7 @@
     justify-content: center;
 }
 
-#squared {
+#exponent {
     margin-left: 15px;
     margin-right: 15px;
 }
@@ -125,34 +125,34 @@
     margin-right: 15px;
 }
 
-#two {
+#num2 {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#three {
+#num3 {
     margin-right: 15px;  
 }
 
-#five {
+#num5 {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#six {
+#num6 {
     margin-right: 15px;
 }
 
-#eight {
+#num8 {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#nine {
+#num9 {
     margin-right: 15px;  
 }
 
-#zero {
+#num0 {
     margin-left: 15px;
     margin-right: 15px;
 }
